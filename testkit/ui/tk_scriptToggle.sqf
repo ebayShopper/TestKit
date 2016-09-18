@@ -19,7 +19,7 @@ if (_index > -1) then {
 	tk_scriptList set [_index, [_script select 0,_script select 1,_params,_status] ];
 	
 	lbSetColor [292901,_index,_list select 1];
-	if (_index < 15) then {
+	if (_index < 24) then {
 		systemChat format["%1 %2",_scriptName,_list select 0];
 	};
 } else {
