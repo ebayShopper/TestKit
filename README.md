@@ -6,6 +6,9 @@ This is a UI for testing DayZ 1.8.8 and Epoch 1.0.6 dev builds. It aims to be si
 * Basic access control suitable for public test servers (depends on BattlEye enabled to be effective)
 
 # Install:
+
+**[>> Download <<](https://github.com/ebaydayz/TestKit/archive/master.zip)**
+
 1. In mission\init.sqf find <code>execFSM "\z\addons\dayz_code\system\player_monitor.fsm";</code> Add directly above:
 
 	```sqf
