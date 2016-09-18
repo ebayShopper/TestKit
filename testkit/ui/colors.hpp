@@ -1,0 +1,6 @@
+#define BLUE [.533,.671,.831,1]
+#define GREEN [.247,.690,.490,1]
+#define DARKGREY [.478,.506,.514,1]
+#define GREY [.807,.811,.839,1]
+#define ORANGE [.776,.518,.388,1]
+#define WHITE [1,1,1,1]
