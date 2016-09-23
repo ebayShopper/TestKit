@@ -32,23 +32,30 @@ _type = _this select 1;
 	};
 	case "> Add weapon": {
 		GO_BACK + "			
-			private ['_class','_config','_magazines','_muzzle','_primary'];
+			private ['_class','_config','_magazines','_muzzle','_weapon'];
 			
 			_class = lbData [292901,lbCurSel 292901];
 			_config = configFile >> 'CfgWeapons' >> _class;
 			
-			_primary = primaryWeapon player;
-			if (_primary != '' && getNumber (_config >> 'type') in [1,5]) then {
-				player removeWeapon _primary;
-				_magazines = getArray (configFile >> 'CfgWeapons' >> _primary >> 'magazines');
+			_weapon = switch (getNumber (_config >> 'type')) do {
+				case 1;
+				case 5: {primaryWeapon player};
+				case 2: {{if (getNumber (configFile >> 'CfgWeapons' >> _x >> 'type') == 2) exitWith {_x}; ''} forEach weapons player};
+				case 4: {secondaryWeapon player};
+				default {''};
+			};
+			
+			if (_weapon != '') then {
+				player removeWeapon _weapon;
+				_magazines = getArray (configFile >> 'CfgWeapons' >> _weapon >> 'magazines');
 				if (count _magazines > 0) then {
-					{player removeMagazine (_magazines select 0);} count [1,2];
+					{player removeMagazine (_magazines select 0);} count [1,2,3];
 				};
 			};
 			
 			_magazines = getArray (_config >> 'magazines');
 			if (count _magazines > 0) then {
-				{player addMagazine (_magazines select 0);} count [1,2];
+				{player addMagazine (_magazines select 0);} count [1,2,3];
 			};
 			player addWeapon _class;
 			
