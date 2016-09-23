@@ -18,12 +18,13 @@ player addBackpack "DZ_Backpack_EP1";
 	_bloodbag,"ItemAntibiotic","ItemEpinephrine","ItemMorphine","ItemPainkiller",
 	"FoodRabbitCooked","ItemWaterbottle","Skin_Camo1_DZ"
 ];
+if (tk_isEpoch) then {player addMagazine "ItemBriefcase100oz";};
 
 {player addWeapon _x;} count [
 	"Mk48_CCO_DZ","M9_SD_DZ",
 	"Binocular_Vector","NVGoggles",
-	"ItemCompass","ItemCrowbar","Itemetool","ItemFlashlight","ItemGPS",
-	"ItemKnife","ItemMap","Itemmatchbox","Itemtoolbox","ItemWatch"
+	"ItemCompass","ItemCrowbar","Itemetool","ItemGPS",
+	"ItemKnife","Itemmatchbox","Itemtoolbox"
 ];
 
 player selectWeapon primaryWeapon player;
