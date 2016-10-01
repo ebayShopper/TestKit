@@ -32,7 +32,7 @@ tk_key = toString tk_key;
 #endif
 			};
 		};
-	} count playableUnits;
+	} count allUnits;
 	
 	if (count _value == 1) exitWith {};
 	_type = _value select 1;

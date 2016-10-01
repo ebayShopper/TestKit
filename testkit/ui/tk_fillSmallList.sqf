@@ -38,4 +38,4 @@ _smallList ctrlSetEventHandler ["LBDblClick","
 			_smallList lbSetColor [_index,GREY];
 		};
 	};
-} count playableUnits;
+} count allUnits;

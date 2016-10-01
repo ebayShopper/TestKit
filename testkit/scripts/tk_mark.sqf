@@ -19,6 +19,7 @@ if (call compile _status) then {
 		_type = _this select 0;
 		_status = _this select 1;
 		_class = if (tk_isEpoch) then {"x_art"} else {"DestroyedVehicle"};
+		_list = [{},{},[]];
 		
 		_getCrew = {
 			_crew = [];
@@ -45,38 +46,39 @@ if (call compile _status) then {
 		};
 		
 		while {call compile _status} do {
-			_list = switch _type do {
-				case "animals": {
-					[{"Orange"},{typeOf _this},CENTER nearEntities ["Animal",RADIUS]]
+			if (visibleMap) then {
+				_list = switch _type do {
+					case "animals": {
+						[{"Orange"},{typeOf _this},CENTER nearEntities ["Animal",RADIUS]]
+					};
+					case "dead": {
+						[{"Red"},{_this getVariable["bodyName","unknown"]},allDead]
+					};
+					case "events": {
+						[{"Pink"},{_this call _getEvent},nearestObjects [CENTER,["CrashSite","Misc_cargo_cont_net1","Misc_cargo_cont_net2","Misc_cargo_cont_net3","MiningItems","IC_Fireplace1"],RADIUS]]
+					};
+					case "players": {
+						[{"Blue"},{if ((vehicle _this == _this or !tk_markVehiclesOn) && isPlayer _this) then {name _this} else {""}},allUnits]
+					};
+					case "plots": {
+						[{"White"},{"Plot"},CENTER nearEntities ["Plastic_Pole_EP1_DZ",RADIUS]]
+					};
+					case "storage": {
+						[{"Green"},{typeOf _this},nearestObjects [CENTER,["DZ_storage_base","VaultStorage","VaultStorageLocked","LockboxStorageLocked","LockboxStorage"],RADIUS]]
+					};
+					case "vehicles": {
+						[{if (isPlayer _this) then {"Blue"} else {"Brown"}},{_this call _getCrew},CENTER nearEntities [["LandVehicle","Air","Ship"],RADIUS]]
+					};
 				};
-				case "dead": {
-					[{"Red"},{_this getVariable["bodyName","unknown"]},allDead]
-				};
-				case "events": {
-					[{"Pink"},{_this call _getEvent},nearestObjects [CENTER,["CrashSite","Misc_cargo_cont_net1","Misc_cargo_cont_net2","Misc_cargo_cont_net3","MiningItems","IC_Fireplace1"],RADIUS]]
-				};
-				case "players": {
-					[{"Blue"},{if ((vehicle _this == _this or !tk_markVehiclesOn) && isPlayer _this) then {name _this} else {""}},playableUnits]
-				};
-				case "plots": {
-					[{"White"},{"Plot"},CENTER nearEntities ["Plastic_Pole_EP1_DZ",RADIUS]]
-				};
-				case "storage": {
-					[{"Green"},{typeOf _this},nearestObjects [CENTER,["DZ_storage_base","VaultStorage","VaultStorageLocked","LockboxStorageLocked","LockboxStorage"],RADIUS]]
-				};
-				case "vehicles": {
-					[{if (isPlayer _this) then {"Blue"} else {"Brown"}},{_this call _getCrew},CENTER nearEntities [["LandVehicle","Air","Ship"],RADIUS]]
-				};
-			};	
-			
-			{
-				_name = format["%1%2",_type,_forEachIndex];
-				deleteMarkerLocal _name;
-				_marker = createMarkerLocal [_name,getPos _x];
-				_marker setMarkerColorLocal format["Color%1",(_x call (_list select 0))];
-				_marker setMarkerTextLocal (_x call (_list select 1));			
-				_marker setMarkerTypeLocal _class;
-			} forEach (_list select 2);	
+				{
+					_name = format["%1%2",_type,_forEachIndex];
+					deleteMarkerLocal _name;
+					_marker = createMarkerLocal [_name,getPos _x];
+					_marker setMarkerColorLocal format["Color%1",(_x call (_list select 0))];
+					_marker setMarkerTextLocal (_x call (_list select 1));			
+					_marker setMarkerTypeLocal _class;
+				} forEach (_list select 2);
+			};
 			
 			uiSleep 4;
 		};

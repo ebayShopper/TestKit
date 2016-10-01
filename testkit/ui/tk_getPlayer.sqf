@@ -8,6 +8,6 @@ _player = cameraOn;
 	if (_uid == getPlayerUID _x) exitWith {
 		_player = _x;
 	};
-} count playableUnits;
+} count allUnits;
 
 _player

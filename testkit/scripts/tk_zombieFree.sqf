@@ -5,7 +5,7 @@ if (tk_zombieFreeOn) then {
 	
 	[] spawn {
 		while {tk_zombieFreeOn} do {
-			{deleteVehicle _x} count (player nearEntities ["zZombie_Base",100]);
+			{deleteVehicle _x} count (vehicle player nearEntities ["zZombie_Base",100]);
 			uiSleep 2;
 		};
 	};
