@@ -12,6 +12,7 @@ _type = _this select 1;
 			_pos = getPos player;
 			_failSafe = [(_pos select 0) + 1,(_pos select 1),0];
 			_pos = [_pos,0,20,1,if (_class isKindOf 'Ship') then {2} else {0},0,0,[],[_failSafe,_failSafe]] call BIS_fnc_findSafePos;
+			if (_pos distance (getMarkerPos 'respawn_west') == 0) then {_pos = _failSafe;};
 			_arrow = 'Sign_arrow_down_large_EP1' createVehicleLocal [0,0,0];
 			_arrow setPos _pos;
 			[_class,_arrow] call tk_waitForObject;		
