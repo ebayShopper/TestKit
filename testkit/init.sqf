@@ -7,8 +7,6 @@ if (!isNil "tk_scriptList") exitWith {systemChat "ERROR: TestKit reinitialized";
 
 tk_scriptList = [
 	["",""],
-	["Fast forward","tk_fastForward"],
-	["Fast up","tk_fastUp"],
 	["Invulnerable","tk_invulnerable"],
 	["Items box","tk_box"],
 	["Mark animals","tk_mark","animals"],
@@ -79,8 +77,6 @@ tk_runScript = compile preprocessFileLineNumbers "testkit\ui\tk_runScript.sqf";
 tk_scriptToggle = compile preprocessFileLineNumbers "testkit\ui\tk_scriptToggle.sqf";
 
 // Variables
-tk_fastForwardOn = false;
-tk_fastUpOn = false;
 tk_invulnerableOn = false;
 tk_markAnimalsOn = false;
 tk_markDeadOn = false;
@@ -96,8 +92,6 @@ tk_zombieSafeOn = false;
 tk_editorMode = !isNull findDisplay 128;
 tk_infoTextOn = "none";
 tk_isEpoch = isClass (configFile >> "CfgWeapons" >> "Chainsaw");
-tk_doFastForward = {};
-tk_doFastUp = {};
 
 if (tk_editorMode) then {
 	BIS_fnc_findSafePos = compile preprocessFileLineNumbers "ca\modules\functions\misc\fn_findSafePos.sqf";

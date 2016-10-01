@@ -12,8 +12,8 @@ keyboard_keys set [DIK_GRAVE,{
 	_handled = true
 }];
 keyboard_keys set [DIK_DELETE,{call tk_delete}];
-keyboard_keys set [DIK_E,{DZE_6 = true; call tk_doFastForward}];
-keyboard_keys set [DIK_Q,{DZE_4 = true; call tk_doFastUp}];
+keyboard_keys set [DIK_5,{call tk_fastForward}];
+keyboard_keys set [DIK_6,{call tk_fastUp}];
 keyboard_keys set [DIK_F8,{call compile preprocessFileLineNumbers "testkit\test.sqf"; _handled = true}];
 keyboard_keys set [DIK_U,{call tk_unlock; _handled = true}];
 
