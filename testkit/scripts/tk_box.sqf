@@ -1,12 +1,11 @@
 if (tk_editorMode) exitWith {"AmmoBoxBig" createVehicle (getPos player);};
 
-private ["_failSafe","_near","_pos"];
+private ["_near","_pos"];
 
 systemChat "Creating box and adding items. Please wait..";
 _near = nearestObjects [player,["AmmoBoxBig"],50];
-_pos = getPos player;
-_failSafe = [(_pos select 0) + 1,(_pos select 1),0];
-_pos = [_pos,0,4,1,0,0,0,[],[_failSafe,_failSafe]] call BIS_fnc_findSafePos;
+_pos = getPosATL player;
+if (surfaceIsWater _pos) then {_pos = ATLToASL _pos;};
 tk_doneSpawning = nil;
 PVDZ_getTickTime = [getPlayerUID player,1,["AmmoBoxBig",_pos],toArray (PVDZ_pass select 0)];
 publicVariableServer "PVDZ_getTickTime";
@@ -31,7 +30,7 @@ _near spawn {
 	
 	_box hideObject true;
 	_arrow = "Sign_arrow_down_large_EP1" createVehicleLocal [0,0,0];
-	_arrow setPos (getPos _box);
+	_arrow setPos (getPosATL _box);
 	
 	waitUntil {
 		uiSleep .4;

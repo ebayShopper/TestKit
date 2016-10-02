@@ -81,8 +81,7 @@ tk_serverSpawnObject = {
 	_class = (_this select 1) select 0;
 	_pos = (_this select 1) select 1;
 
-	_object = _class createVehicle [0,0,0];
-	_object setPos _pos;
+	_object = _class createVehicle _pos;
 	_id = format ["%1",ceil(random 8000)];
 	_object setVariable ["CharacterID",_id,true];
 	_object setVariable ["lastUpdate",diag_ticktime,false];

@@ -94,7 +94,6 @@ tk_infoTextOn = "none";
 tk_isEpoch = isClass (configFile >> "CfgWeapons" >> "Chainsaw");
 
 if (tk_editorMode) then {
-	BIS_fnc_findSafePos = compile preprocessFileLineNumbers "ca\modules\functions\misc\fn_findSafePos.sqf";
 	BIS_fnc_help = compile preprocessFileLineNumbers "ca\modules\functions\misc\fn_help.sqf";
 	dayz_classicBloodBagSystem = true;
 	dayz_currentGlobalAnimals = 0;

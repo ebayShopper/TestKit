@@ -6,14 +6,13 @@ _type = _this select 1;
 (_type call tk_fillBigList) ctrlSetEventHandler ["LBDblClick", switch _type do {
 	case "> Create vehicle": {
 		GO_BACK + "	
-			private ['_arrow','_class','_failSafe','_pos','_result'];
+			private ['_arrow','_class','_pos','_result'];
 			
 			_class = lbData [292901,lbCurSel 292901];
-			_pos = getPos player;
-			_failSafe = [(_pos select 0) + 1,(_pos select 1),0];
-			_pos = [_pos,0,20,1,if (_class isKindOf 'Ship') then {2} else {0},0,0,[],[_failSafe,_failSafe]] call BIS_fnc_findSafePos;
-			_arrow = 'Sign_arrow_down_large_EP1' createVehicleLocal [0,0,0];
-			_arrow setPos _pos;
+			_pos = getPosATL player;
+			_pos = [(_pos select 0) + 1, _pos select 1, _pos select 2];
+			if (surfaceIsWater _pos) then {_pos = ATLToASL _pos;};
+			_arrow = 'Sign_arrow_down_large_EP1' createVehicleLocal _pos;
 			[_class,_arrow] call tk_waitForObject;		
 			systemChat format['Creating: %1 nearby',_class];
 			
