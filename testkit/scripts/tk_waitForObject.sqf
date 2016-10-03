@@ -12,7 +12,7 @@ _near = count (nearestObjects [player,[_class],50]);
 
 	waitUntil {
 		uiSleep 1;
-		(count (nearestObjects [player,[_class],50]) != _near or (diag_tickTime - _time > 30))
+		(count (nearestObjects [player,[_class],50]) != _near or (diag_tickTime - _time > 15))
 	};
 
 	if (!isNull _sign) then {

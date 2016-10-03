@@ -18,7 +18,7 @@ _near spawn {
 	
 	waitUntil {
 		uiSleep 1;
-		(count (nearestObjects [player,["AmmoBoxBig"],50]) != count _near)
+		(count (nearestObjects [player,["AmmoBoxBig"],50]) != count _near or (diag_tickTime - _startTime > 15))
 	};
 	
 	_box = objNull;
