@@ -14,7 +14,7 @@ if (call compile _status) then {
 	[_script,true] call tk_scriptToggle;
 	
 	[_type,_status] spawn {
-		private ["_class","_crew","_getCrew","_getEvent","_list","_marker","_name","_status","_type"];
+		private ["_class","_crew","_dead","_getCrew","_getDead","_getEvent","_list","_marker","_name","_status","_type"];
 		
 		_type = _this select 0;
 		_status = _this select 1;
@@ -30,6 +30,15 @@ if (call compile _status) then {
 				_crew = if (count crew _this > 0) then {""} else {typeOf _this};
 			};
 			_crew
+		};
+		_getDead = {
+			_dead = [];
+			{
+				if (_x getVariable["bodyName",""] != "") then {
+					_dead set [count _dead,_x];
+				};
+			} count allDead;
+			_dead
 		};
 		_getEvent = {
 			switch (typeOf _this) do {
@@ -52,7 +61,7 @@ if (call compile _status) then {
 						[{"Orange"},{typeOf _this},CENTER nearEntities ["Animal",RADIUS]]
 					};
 					case "dead": {
-						[{"Red"},{_this getVariable["bodyName","unknown"]},allDead]
+						[{"Red"},{_this getVariable["bodyName","unknown"]},(call _getDead)]
 					};
 					case "events": {
 						[{"Pink"},{_this call _getEvent},nearestObjects [CENTER,["CrashSite","Misc_cargo_cont_net1","Misc_cargo_cont_net2","Misc_cargo_cont_net3","MiningItems","IC_Fireplace1"],RADIUS]]
