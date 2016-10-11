@@ -116,11 +116,14 @@ if (tk_editorMode) then {
 [] spawn {
 	if (tk_editorMode) then {
 		Dayz_loginCompleted = true;
+		DZ_KeyDown_EH = {};
 		keyboard_keys = [];
 		keyboard_keys resize 256;
 	};
 	waitUntil {uiSleep 1;(!isNil "Dayz_loginCompleted" && !isNil "keyboard_keys")};
 	uiSleep 2;
+	
+	DZ_KeyDown_EH_Original = DZ_KeyDown_EH;
+	DZ_KeyDown_EH = compile preprocessFileLineNumbers "testkit\keys.sqf";
 	systemChat "Tilde '~' to open testkit";
-	execVM "testkit\keys.sqf";
 };
