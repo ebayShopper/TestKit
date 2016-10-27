@@ -55,7 +55,7 @@ if (call compile _status) then {
 		};
 		
 		while {call compile _status} do {
-			if (visibleMap) then {
+			if (visibleMap or !isNull findDisplay 88890) then {
 				_list = switch _type do {
 					case "animals": {
 						[{"Orange"},{typeOf _this},CENTER nearEntities ["Animal",RADIUS]]
