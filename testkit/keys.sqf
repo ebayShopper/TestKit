@@ -5,6 +5,7 @@ _handled = _this call DZ_KeyDown_EH_Original;
 //Check if keyboard_keys reset (startup or player changed controls in-game)
 _code = keyboard_keys select DIK_GRAVE;
 if (isNil "_code") then {
+	//Add additional hotkeys only once at startup
 	keyboard_keys set [DIK_GRAVE,{
 		private "_display";
 		disableSerialization;
