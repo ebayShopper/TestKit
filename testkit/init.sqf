@@ -116,7 +116,7 @@ if (tk_editorMode) then {
 [] spawn {
 	if (tk_editorMode) then {
 		Dayz_loginCompleted = true;
-		DZ_KeyDown_EH = {};
+		DZ_KeyDown_EH = {false};
 		keyboard_keys = [];
 		keyboard_keys resize 256;
 	};
