@@ -24,6 +24,7 @@ if (isNil "_code") then {
 	keyboard_keys set [DIK_U,{call tk_unlock; _handled = true}];
 
 	if (tk_editorMode) then {
+		(findDisplay 128) displayRemoveAllEventHandlers "KeyDown";
 		(findDisplay 128) displayAddEventHandler ["KeyDown","
 			_handled = false;
 			_code = keyboard_keys select (_this select 1);

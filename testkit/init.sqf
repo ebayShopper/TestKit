@@ -116,9 +116,14 @@ if (tk_editorMode) then {
 [] spawn {
 	if (tk_editorMode) then {
 		Dayz_loginCompleted = true;
-		DZ_KeyDown_EH = {false};
-		keyboard_keys = [];
-		keyboard_keys resize 256;
+		DZ_KeyDown_EH = {
+			if (isNil "keyboard_keys") then {
+				keyboard_keys = [];
+				keyboard_keys resize 256;
+			};
+			false
+		};
+		call DZ_KeyDown_EH;
 	};
 	waitUntil {uiSleep 1;(!isNil "Dayz_loginCompleted" && !isNil "keyboard_keys")};
 	uiSleep 2;
