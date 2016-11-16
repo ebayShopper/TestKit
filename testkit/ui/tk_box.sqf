@@ -1,3 +1,4 @@
+#include "text_scripts.sqf"
 if (tk_editorMode) exitWith {"AmmoBoxBig" createVehicle (getPos player);};
 
 private ["_near","_pos"];

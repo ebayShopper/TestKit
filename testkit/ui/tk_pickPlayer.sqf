@@ -1,3 +1,4 @@
+#include "text_scripts.sqf"
 private ["_option","_player","_strH","_text","_vehicle"];
 
 _option = _this select 1;

@@ -1,3 +1,5 @@
+#include "text_scripts.sqf"
+
 private "_display";
 disableSerialization;
 _display = findDisplay 12 displayCtrl 51;
@@ -17,8 +19,13 @@ if (tk_teleportOn) then {
 	};
 	
 	["Toggle teleport",true] call tk_scriptToggle;
-	_display ctrlAddEventHandler ["MouseButtonUp","if (_this select 6) then {(_this select 0 ctrlMapScreenToWorld [_this select 2,_this select 3]) call tk_doTeleport};true"];
+	_display ctrlSetEventHandler ["MouseButtonUp","
+		if (_this select 6) then {(_this select 0 ctrlMapScreenToWorld [_this select 2,_this select 3]) call tk_doTeleport};
+		'_pondPos = (_x worldToModel _playerPos) select 2;
+		';
+		true
+	"];
 } else {
 	["Toggle teleport",false] call tk_scriptToggle;
-	_display ctrlRemoveAllEventHandlers "MouseButtonUp";
+	_display ctrlSetEventHandler ["MouseButtonUp","false"];
 };

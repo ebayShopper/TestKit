@@ -1,3 +1,4 @@
+#include "text_scripts.sqf"
 #define GO_BACK "if (lbCurSel 292901 == 0) exitWith {'Scripts' call tk_fillBigList;};"
 
 private "_type";
@@ -27,6 +28,7 @@ _type = _this select 1;
 				publicVariableServer 'PVDZ_getTickTime';
 				systemChat 'Warning vehicle position will reset after next server restart. After that it will save correctly.';
 			};
+			'_object = (_x select 1) createVehicleLocal [0,0,0]; _selected = lbCurSel _list;'
 		"
 	};
 	case "> Add weapon": {
@@ -65,6 +67,7 @@ _type = _this select 1;
 				player selectWeapon _class;
 			};
 			systemChat format['Added: %1',_class];
+			'_selected = lbCurSel _list;'
 		"
 	};
 	case "> Add magazine": {
@@ -73,6 +76,7 @@ _type = _this select 1;
 			_class = lbData [292901,lbCurSel 292901];
 			player addMagazine _class;
 			systemChat format['Added: %1',_class];
+			'_selected = lbCurSel _list;'
 		"
 	};
 	case "> Add backpack": {
@@ -81,6 +85,7 @@ _type = _this select 1;
 			_class = lbData [292901,lbCurSel 292901];
 			player addBackpack _class;
 			systemChat format['Added: %1',_class];
+			'_selected = lbCurSel _list;'
 		"
 	};
 	case "> Change clothes": {
@@ -91,6 +96,7 @@ _type = _this select 1;
 				[dayz_playerUID,dayz_characterID,_class] spawn player_humanityMorph;
 			};
 			systemChat format['Now wearing: %1',_class];
+			'_selected = lbCurSel _list;'
 		"
 	};
 }];

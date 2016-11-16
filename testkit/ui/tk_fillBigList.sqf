@@ -1,5 +1,5 @@
 #include "colors.hpp"
-
+#include "text_scripts.sqf"
 private ["_bigList","_class","_color","_condition","_config","_filter","_function",
 "_ignoreMagazines","_ignoreParents","_ignoreWeapons","_image","_index","_list","_name","_root","_text"];
 
@@ -65,7 +65,7 @@ switch _this do {
 			_bigList lbSetColor [_index, switch true do {
 				case (_function == "tk_spawn"): {WHITE};
 				case (_function == "tk_weather"): {BLUE};
-				case (_function == "tk_selectPlayer"): {ORANGE};
+				case (_function == "tk_pickPlayer"): {ORANGE};
 				case (count _x > 3 && {_x select 3}): {GREEN};
 				case default {GREY};
 			}];

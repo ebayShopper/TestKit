@@ -1,3 +1,4 @@
+#include "text_scripts.sqf"
 private ["_function","_index","_params","_script"];
 
 _index = lbCurSel 292901;

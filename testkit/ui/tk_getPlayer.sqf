@@ -1,3 +1,5 @@
+#include "text_scripts.sqf"
+
 private ["_index","_player","_uid"];
 
 _index = lbCurSel 292904;

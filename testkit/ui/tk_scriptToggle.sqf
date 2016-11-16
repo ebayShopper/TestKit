@@ -1,4 +1,5 @@
 #include "colors.hpp"
+#include "text_scripts.sqf"
 private ["_index","_list","_params","_script","_scriptName","_status"];
 
 _scriptName = _this select 0;

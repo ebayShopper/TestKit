@@ -1,3 +1,4 @@
+#include "text_scripts.sqf"
 #define CENTER getMarkerPos "center"
 #define RADIUS ((getMarkerSize "center") select 1)*2
 
