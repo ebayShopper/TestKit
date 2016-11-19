@@ -16,6 +16,7 @@ tk_scriptList = [
 	["Mark storage","tk_mark","storage"],
 	["Mark vehicles","tk_mark","vehicles"],
 	["Player icons","tk_playerIcons"],
+	["Respawn","tk_respawn"],
 	["Standard gear","tk_standardGear"],
 	["Toggle teleport","tk_teleport"],
 	["Zombie free","tk_zombieFree"],
@@ -70,6 +71,7 @@ tk_mark = compile preprocessFileLineNumbers "testkit\ui\tk_mark.sqf";
 tk_open = compile preprocessFileLineNumbers "testkit\ui\tk_ui.sqf";
 tk_pickPlayer = compile preprocessFileLineNumbers "testkit\ui\tk_pickPlayer.sqf";
 tk_playerIcons = compile preprocessFileLineNumbers "testkit\ui\tk_playerIcons.sqf";
+tk_respawn = compile preprocessFileLineNumbers "testkit\ui\tk_respawn.sqf";
 tk_runScript = compile preprocessFileLineNumbers "testkit\ui\tk_runScript.sqf";
 tk_scriptToggle = compile preprocessFileLineNumbers "testkit\ui\tk_scriptToggle.sqf";
 tk_spawn = compile preprocessFileLineNumbers "testkit\ui\tk_spawn.sqf";
