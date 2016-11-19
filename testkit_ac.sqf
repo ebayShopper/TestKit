@@ -12,11 +12,6 @@ if (!isNil "tk_ac") then {
 };
 tk_ac = "started";
 
-// Block local script execution bug. Still not fixed in A2OA as of 1.63.131129
-inGameUISetEventHandler ["Action","false"];
-inGameUISetEventHandler ["NextAction","false"];
-inGameUISetEventHandler ["PrevAction","false"];
-
 [
 	getPlayerUID player,
 	CONVERT(fnc_usec_damageHandler),
@@ -68,7 +63,6 @@ inGameUISetEventHandler ["PrevAction","false"];
 			case (_type == "Survivor1_DZ"): {"Survivor1_DZ morph"};
 			case (_type isKindOf "Animal"): {"Animal morph"};
 			case (getMarkerPos "respawn_west" distance _respawn > 0): {"Respawn moved"};
-			case (!isNil "unitRecoilCoefficient" or {unitRecoilCoefficient player != 1}): {"Recoil modified"};
 			default {"none"};
 		};
 		{
