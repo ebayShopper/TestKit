@@ -33,6 +33,8 @@ _menu ctrlSetEventHandler ["ButtonClick",_compile];
 ,if (_vehicle == _x) then {name _x} else {_vehicle call dayz_getCrew}];
 _marker setMarkerColorLocal "ColorGreen";
 
+BIS_MPF_logic = BIS_MPF_dummygroup createUnit ["Logic", [1000,10,0], [], 0, "NONE"];
+
 rcreateMarkerLocalcode
 rhideObjectcode
 rsetMarkerPosLocalcode

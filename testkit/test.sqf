@@ -1,4 +1,5 @@
 // Use F8 key to run this script.
+#include "ui\text_scripts.sqf"
 
 private ["_fnc_dump","_t1"];
 
