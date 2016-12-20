@@ -93,6 +93,7 @@ _type = _this select 1;
 			private '_class';
 			_class = lbData [292901,lbCurSel 292901];
 			if (typeOf player != _class) then {
+				false call dz_fn_meleeMagazines;
 				[dayz_playerUID,dayz_characterID,_class] spawn player_humanityMorph;
 			};
 			systemChat format['Now wearing: %1',_class];
