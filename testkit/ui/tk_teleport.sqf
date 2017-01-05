@@ -21,8 +21,6 @@ if (tk_teleportOn) then {
 	["Toggle teleport",true] call tk_scriptToggle;
 	_display ctrlSetEventHandler ["MouseButtonUp","
 		if (_this select 6) then {(_this select 0 ctrlMapScreenToWorld [_this select 2,_this select 3]) call tk_doTeleport};
-		'_pondPos = (_x worldToModel _playerPos) select 2;
-		';
 		true
 	"];
 } else {
