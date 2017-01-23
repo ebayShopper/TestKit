@@ -5,8 +5,8 @@ tk_playerIconsOn = !tk_playerIconsOn;
 
 if (tk_playerIconsOn) then {
 	["Player icons",true] call tk_scriptToggle;
-	setGroupIconsVisible [false,true];
-	
+	/*
+	setGroupIconsVisible [false,true];	
 	[] spawn {
 		private "_leader";
 		while {tk_playerIconsOn} do {
@@ -20,7 +20,8 @@ if (tk_playerIconsOn) then {
 			uiSleep 0.5;
 		};
 	};
+	*/
 } else {
 	["Player icons",false] call tk_scriptToggle;
-	setGroupIconsVisible [false,false];
+	//setGroupIconsVisible [false,false];
 };
