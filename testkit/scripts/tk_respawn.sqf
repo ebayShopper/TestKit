@@ -1,1 +1,1 @@
-[player,"shot"] call player_death;
+[player,"suicide"] call player_death;
