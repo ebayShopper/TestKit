@@ -18,7 +18,6 @@ _t1 = diag_tickTime;
 
 
 
-//player addEventHandler ["HandleDamage",{diag_log format["HandleDamage: Unit:%1 Hit:%2 Damage:%3 Source:%4 Ammo:%5",_this select 0,_this select 1,_this select 2,_this select 3,_this select 4];}];
 
 
 
