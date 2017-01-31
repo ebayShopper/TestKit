@@ -59,7 +59,7 @@ if (call compile _status) then {
 			if (visibleMap or !isNull findDisplay 88890) then {
 				_list = switch _type do {
 					case "animals": {
-						[{"Orange"},{typeOf _this},CENTER nearEntities ["Animal",RADIUS]]
+						[{"Orange"},{typeOf _this},entities "Animal"]
 					};
 					case "dead": {
 						[{"Red"},{_this getVariable["bodyName","unknown"]},(call _getDead)]
@@ -71,7 +71,7 @@ if (call compile _status) then {
 						[{"Blue"},{if ((vehicle _this == _this or !tk_markVehiclesOn) && isPlayer _this) then {name _this} else {""}},allUnits]
 					};
 					case "plots": {
-						[{"White"},{"Plot"},CENTER nearEntities ["Plastic_Pole_EP1_DZ",RADIUS]]
+						[{"White"},{"Plot"},entities "Plastic_Pole_EP1_DZ"]
 					};
 					case "storage": {
 						[{"Green"},{typeOf _this},nearestObjects [CENTER,["DZ_storage_base","VaultStorage","VaultStorageLocked","LockboxStorageLocked","LockboxStorage"],RADIUS]]

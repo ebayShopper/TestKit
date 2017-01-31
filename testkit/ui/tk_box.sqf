@@ -4,7 +4,7 @@ if (tk_editorMode) exitWith {"AmmoBoxBig" createVehicle (getPos player);};
 private ["_near","_pos"];
 
 systemChat "Creating box and adding items. Please wait..";
-_near = nearestObjects [player,["AmmoBoxBig"],50];
+_near = player nearObjects ["AmmoBoxBig",50];
 _pos = getPosATL player;
 if (surfaceIsWater _pos) then {_pos = ATLToASL _pos;};
 tk_doneSpawning = nil;
@@ -19,7 +19,7 @@ _near spawn {
 	
 	waitUntil {
 		uiSleep 1;
-		(count (nearestObjects [player,["AmmoBoxBig"],50]) != count _near or (diag_tickTime - _startTime > 15))
+		(count (player nearObjects ["AmmoBoxBig",50]) != count _near or (diag_tickTime - _startTime > 15))
 	};
 	
 	_box = objNull;
@@ -27,7 +27,7 @@ _near spawn {
 		if !(_x in _near) exitWith {
 			_box = _x;
 		};
-	} count (nearestObjects [player,["AmmoBoxBig"],50]);
+	} count (player nearObjects ["AmmoBoxBig",50]);
 	
 	_box hideObject true;
 	_arrow = "Sign_arrow_down_large_EP1" createVehicleLocal [0,0,0];
