@@ -3,7 +3,9 @@
 lbSort _playerList;
 
 } count allDead;
-if (!_found) then {deleteMarkerLocal "MyBody";};
+
+
+if (dayz_oldBodyCount > _bodyCount) then {
 
 publicVariableServer "PVDZ_Server_UpdateGroup";
 };
