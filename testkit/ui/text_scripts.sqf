@@ -21,7 +21,7 @@ deleteMarkerLocal format["groupMember
 
 bis_fnc_halo_keydown_eh = (finddisplay 46) displayaddeventhandler ["keydown","_this call bis_fnc_halo_keydown;"];
 
-_selected = lbCurSel _list;
+_selectedUserIndex = lbCurSel _lbUsersControl;
 
 _lbUsersControl lbSetColor [_x, [1,0,0,1]];
 
@@ -35,8 +35,9 @@ _marker setMarkerColorLocal "ColorGreen";
 
 BIS_MPF_logic = BIS_MPF_dummygroup createUnit ["Logic", [1000,10,0], [], 0, "NONE"];
 
-rcreateMarkerLocalcode
-rhideObjectcode
-rsetMarkerPosLocalcode
-rswitchCameracode
+rcreateMarkerLocal
+rhideObject
+rsetMarkerPosLocal
+rswitchCamera
+BIS_fnc_commsMenu
 ';
