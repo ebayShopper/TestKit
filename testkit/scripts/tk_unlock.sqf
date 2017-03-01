@@ -25,7 +25,7 @@ systemChat "Logged to client RPT";
 if (!tk_isEpoch) exitWith {};
 
 if (locked _target) then {
-	[0,0,0,[_target,"Hotkey"]] call compile preProcessFileLineNumbers "\z\addons\dayz_code\actions\unlock_veh.sqf";
+	[0,0,0,[_target,"Hotkey"]] execVM "\z\addons\dayz_code\actions\unlock_veh.sqf";
 };
 
 if (_charID != 0 && (_type isKindOf "LandVehicle" or {_type isKindOf "Air"} or {_type isKindOf "Ship"})) then {
