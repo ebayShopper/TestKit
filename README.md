@@ -1,8 +1,8 @@
-This is a UI for testing DayZ 1.8.8 and Epoch 1.0.6 dev builds. It aims to be simple, light weight and minimally invasive.
+This is a UI for testing DayZ 1.8.9 and Epoch 1.0.6.1 dev builds. It aims to be simple, light weight and minimally invasive.
 * Built on Bohemia's functions viewer dialog
 * Type and execute code directly in game
 * Usable in the editor
-* Compatible with vanilla anticheat
+* Compatible with vanilla anti-teleport
 * Basic access control suitable for public test servers (depends on BattlEye enabled to be effective)
 
 # Install:

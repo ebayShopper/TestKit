@@ -29,6 +29,7 @@ _lbUsersControl lbSetColor [_x, [1,0,0,1]];
 ([4654,9595,0] nearestObject 145260) setDamage 1;
 
 _menu ctrlSetEventHandler ["ButtonClick",_compile];
+};
 
 ,if (_vehicle == _x) then {name _x} else {_vehicle call dayz_getCrew}];
 _marker setMarkerColorLocal "ColorGreen";
