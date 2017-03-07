@@ -2,10 +2,12 @@
 //This bug should be fixed in the next EOL patch.
 //Put this code at the bottom of dayz_server\init\server_functions.sqf
 
+//List all of the files in your mission. For example, you may need to add 'custom\variables.sqf', etc.
 _files = ['description.ext','init.sqf','mission.sqm','rules.sqf'];
+
 _list = [];
 {
-	_file = toArray (toLower(preprocessFileLineNumbers _x));
+	_file = toArray (toLower(preprocessFile _x));
 	_sum = 0;
 	_count = {_sum = _sum + _x; true} count _file;
 	_sum = _sum min 999999;		
@@ -19,7 +21,7 @@ _temp setVehicleInit format["
 	
 	_list = [];
 	{
-		_file = toArray (toLower(preprocessFileLineNumbers _x));
+		_file = toArray (toLower(preprocessFile _x));
 		_sum = 0;
 		_count = {_sum = _sum + _x; true} count _file;
 		_sum = _sum min 999999;		
