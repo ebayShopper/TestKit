@@ -27,6 +27,7 @@ _type = _this select 1;
 				PVDZ_getTickTime = [getPlayerUID player,1,[_class,_pos],toArray (PVDZ_pass select 0)];
 				publicVariableServer 'PVDZ_getTickTime';
 				systemChat 'Warning vehicle position will reset after next server restart. After that it will save correctly.';
+				systemChat 'All players must relog for vehicle event handlers to work (damage, killed, repair, getOut, etc.)';
 			};
 			'_object = (_x select 1) createVehicleLocal [0,0,0]; _selectedUserIndex = lbCurSel _lbUsersControl;'
 		"
