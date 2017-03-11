@@ -1,8 +1,8 @@
-//Temporary block for A2OA mission override exploit.
+//Temporary check for A2OA mission override exploit.
 //This bug should be fixed in the next EOL patch.
 //Put this code at the bottom of dayz_server\init\server_functions.sqf
 
-//List all of the files in your mission. For example, you may need to add 'custom\variables.sqf', etc.
+//List all files in your mission. For example, you may need to add 'custom\variables.sqf', etc.
 _files = ['description.ext','init.sqf','mission.sqm','rules.sqf'];
 
 _list = [];
@@ -16,7 +16,7 @@ _list = [];
 
 //Check mission integrity on all clients
 _temp = "HeliHEmpty" createVehicle [0,0,0];
-_temp setVehicleInit format["
+_temp setVehicleInit (str formatText["
 	if (isServer) exitWith {};
 	
 	_list = [];
@@ -43,6 +43,6 @@ _temp setVehicleInit format["
 			{(findDisplay _x) closeDisplay 2;} count [0,8,12,18,46,70];
 		};
 	};
-",_files,_list];
+",_files,_list]);
 
 processInitCommands;
