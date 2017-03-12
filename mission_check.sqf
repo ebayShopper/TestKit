@@ -2,7 +2,8 @@
 //This bug should be fixed in the next EOL patch.
 //Put this code at the bottom of dayz_server\init\server_functions.sqf
 
-//List all files in your mission. For example, you may need to add 'custom\variables.sqf', etc.
+//List of files in your mission to check. For example, you may need to add 'custom\variables.sqf' etc.
+//Remove any you aren't using
 _files = ['description.ext','init.sqf','mission.sqm','rules.sqf'];
 
 _list = [];
