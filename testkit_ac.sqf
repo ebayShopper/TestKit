@@ -1,4 +1,4 @@
-#define KICK_VARIABLES ["abcd","bp","byebyezombies","changebackpack","hdir","hovering","j","nlist","playericons","scode","selectdelay","shnext","spi"]
+#define KICK_VARIABLES ["kickvar1","kickvar2"]
 #define KICK_DISPLAYS [30,                     32,              45,                     125,                       140,                    155,                   156,                    1001,               2929,               3030]
 //                    [RscDisplayTemplateLoad, RscDisplayIntel, RscDisplayArcadeMarker, RscDisplayEditDiaryRecord, RscDisplaySingleplayer, RscDisplayDSinterface, RscDisplayAddonActions, RscDisplayWFVoting, RscFunctionsViewer, RscConfigEditor_Main]
 #define CONVERT(s) format["%1",s]
