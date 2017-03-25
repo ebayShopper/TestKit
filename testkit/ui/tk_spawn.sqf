@@ -59,7 +59,10 @@ _type = _this select 1;
 			if (count _magazines > 0) then {
 				{player addMagazine (_magazines select 0);} count [1,2,3];
 			};
-			player addWeapon _class;
+			
+			if !(player hasWeapon _class) then {
+				player addWeapon _class;
+			};
 			
 			_muzzle = getArray (_config >> 'muzzles');
 			if (count _muzzle > 1) then {
