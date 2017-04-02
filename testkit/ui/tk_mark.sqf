@@ -56,7 +56,7 @@ if (call compile _status) then {
 		};
 		
 		while {call compile _status} do {
-			if (visibleMap or !isNull findDisplay 88890) then {
+			if (visibleMap or !isNull (uiNamespace getVariable["BIS_RscMiniMap",displayNull])) then {
 				_list = switch _type do {
 					case "animals": {
 						[{"Orange"},{typeOf _this},entities "Animal"]
@@ -77,7 +77,7 @@ if (call compile _status) then {
 						[{"Green"},{typeOf _this},nearestObjects [CENTER,["DZ_storage_base","VaultStorage","VaultStorageLocked","LockboxStorageLocked","LockboxStorage"],RADIUS]]
 					};
 					case "vehicles": {
-						[{if (isPlayer _this) then {"Blue"} else {"Brown"}},{_this call _getCrew},CENTER nearEntities [["LandVehicle","Air","Ship"],RADIUS]]
+						[{if (isPlayer _this) then {"Blue"} else {"Brown"}},{_this call _getCrew},CENTER nearEntities [["Air","LandVehicle","Ship"],RADIUS]]
 					};
 				};
 				{
@@ -90,7 +90,7 @@ if (call compile _status) then {
 				} forEach (_list select 2);
 			};
 			
-			uiSleep 4;
+			uiSleep 1.5;
 		};
 		{deleteMarkerLocal format["%1%2",_type,_forEachIndex];} forEach (_list select 2);
 	};
