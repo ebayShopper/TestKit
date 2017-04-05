@@ -1,4 +1,4 @@
-This is a UI for testing DayZ 1.8.9 and Epoch 1.0.6.1 dev builds. It aims to be simple, light weight and minimally invasive.
+This is a UI for testing A2 Epoch and DayZ mod dev builds. It aims to be simple, light weight and minimally invasive.
 * Built on Bohemia's functions viewer dialog
 * Type and execute code directly in game
 * Usable in the editor

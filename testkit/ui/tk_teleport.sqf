@@ -15,7 +15,7 @@ if (tk_teleportOn) then {
 		preloadCamera _pos;
 		(vehicle player) setPos _pos;
 		openMap [false,false];
-		{player reveal _x} count (player nearObjects ["All",25]);
+		{player reveal _x} count (player nearEntities ["AllVehicles",100]);
 	};
 	
 	["Toggle teleport",true] call tk_scriptToggle;
