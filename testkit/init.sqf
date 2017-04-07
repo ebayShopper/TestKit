@@ -49,6 +49,7 @@ tk_delete = compile preprocessFileLineNumbers "testkit\scripts\tk_delete.sqf";
 tk_fastForward = compile preprocessFileLineNumbers "testkit\scripts\tk_fastForward.sqf";
 tk_fastUp = compile preprocessFileLineNumbers "testkit\scripts\tk_fastUp.sqf";
 tk_getPos = compile preprocessFileLineNumbers "testkit\scripts\tk_getPos.sqf";
+tk_getWaterHole = compile preprocessFileLineNumbers "testkit\scripts\tk_getWaterHole.sqf";
 tk_help = compile preprocessFileLineNumbers "testkit\scripts\tk_help.sqf";
 tk_invulnerable = compile preprocessFileLineNumbers "testkit\scripts\tk_invulnerable.sqf";
 tk_profileLog = compile preprocessFileLineNumbers "testkit\scripts\tk_profileLog.sqf";
