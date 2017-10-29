@@ -1,7 +1,7 @@
 {missionNamespace setVariable [_x,false]} count [
 	"r_action","r_action_unload","r_doLoop","r_drag_sqf","r_fracture_arms","r_fracture_legs",
 	"r_interrupt","r_player_cardiac","r_player_handler","r_player_infected","r_player_injured",
-	"r_player_inpain","r_player_lowblood","r_player_timeout","r_player_unconscious",
+	"r_player_inpain","r_player_lowblood","r_player_unconscious",
 	"r_player_unconsciousInProgress","r_player_unconsciousInputDisabled"
 ];
 
@@ -24,6 +24,7 @@ dayz_hunger = 0;
 dayz_thirst = 0;
 dayz_temperatur = 36;
 dayz_sourceBleeding = objNull;
+r_player_timeout = 0;
 player setHit ["body",0];
 player setHit ["hands",0];
 player setHit ["legs",0];
