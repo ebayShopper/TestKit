@@ -21,7 +21,7 @@ _type = _this select 1;
 			
 			if (tk_isEpoch) then {
 				_result = call epoch_generateKey;		
-				PVDZE_veh_Publish2 = if (_class isKindOf 'Bicycle') then {[[0,_pos],_class,true,'0',player]} else {[[0,_pos],_class,false,_result select 1,player]};
+				PVDZE_veh_Publish2 = if (_class isKindOf 'Bicycle') then {[[0,_pos],_class,true,'0',player,dayz_authKey]} else {[[0,_pos],_class,false,_result select 1,player,dayz_authKey]};
 				publicVariableServer 'PVDZE_veh_Publish2';
 			} else {
 				PVDZ_getTickTime = [getPlayerUID player,1,[_class,_pos],toArray (PVDZ_pass select 0)];
