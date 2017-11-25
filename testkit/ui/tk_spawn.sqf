@@ -96,11 +96,7 @@ _type = _this select 1;
 		GO_BACK + "
 			private '_class';
 			_class = lbData [292901,lbCurSel 292901];
-			if (typeOf player != _class) then {
-				gear_done = false;
-				[dayz_playerUID,dayz_characterID,_class] spawn player_humanityMorph;
-				gear_done = true;
-			};
+			[dayz_playerUID,dayz_characterID,_class] spawn player_humanityMorph;
 			systemChat format['Now wearing: %1',_class];
 			'_selectedUserIndex = lbCurSel _lbUsersControl;'
 		"
