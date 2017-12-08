@@ -1,5 +1,4 @@
 #include "colors.hpp"
-#include "text_scripts.sqf"
 private ["_index","_name","_smallList","_viewing"];
 
 _viewing = _this;

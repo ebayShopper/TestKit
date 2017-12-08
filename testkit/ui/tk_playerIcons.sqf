@@ -1,5 +1,4 @@
 #include "colors.hpp"
-#include "text_scripts.sqf"
 
 tk_playerIconsOn = !tk_playerIconsOn;
 

@@ -1,5 +1,8 @@
-// Set 0 to allow teleport on your client. Set 1 to enable vanilla anticheat on your client.
-dayz_antihack = 0; // Can be changed on the fly by relogging, regardless of init.sqf setting
+// Run with test script and teleport keybinds only, for testing BE scripts.txt filters
+tk_minimalMode = false;
+
+//Can be changed on the fly by relogging, regardless of init.sqf setting
+dayz_antihack = 0; //0: allow teleport on your client. 1: enable vanilla anticheat on your client.
 
 #include "ui\colors.hpp"
 if (!isNil "tk_scriptList") exitWith {systemChat "ERROR: TestKit reinitialized";};
@@ -108,6 +111,7 @@ if (tk_editorMode) then {
 	dayz_nutrition = 0;
 	dayz_temperatur = 0;
 	r_player_blood = 0;
+	dayz_rollingMessages = {};
 	epoch_generateKey = {[0,0]};
 	fnc_usec_damageHandler = {0};
 	player_humanityMorph = {};
@@ -133,5 +137,6 @@ if (tk_editorMode) then {
 	DZ_KeyDown_EH_Original = DZ_KeyDown_EH;
 	DZ_KeyDown_EH = compile preprocessFileLineNumbers "testkit\keys.sqf";
 	[controlNull,1,false,false,false] call DZ_KeyDown_EH;
-	systemChat "Tilde '~' to open testkit";
+
+	[(if (tk_minimalMode) then {"F8 to run test script"} else {"Tilde '~' to open testkit"}), call dayz_rollingMessages];
 };

@@ -1,5 +1,3 @@
-#include "text_scripts.sqf"
-
 private "_display";
 disableSerialization;
 _display = findDisplay 12 displayCtrl 51;

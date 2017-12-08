@@ -1,5 +1,3 @@
-#include "text_scripts.sqf"
-
 private ["_player","_statsText","_type"];
 
 disableSerialization;

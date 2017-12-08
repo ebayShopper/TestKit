@@ -1,5 +1,4 @@
 #include "colors.hpp"
-#include "text_scripts.sqf"
 private ["_bigList","_class","_color","_condition","_config","_filter","_function",
 "_ignoreMagazines","_ignoreParents","_ignoreWeapons","_image","_index","_list","_name","_root","_text"];
 

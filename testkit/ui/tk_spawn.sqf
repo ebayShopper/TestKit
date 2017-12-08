@@ -1,4 +1,3 @@
-#include "text_scripts.sqf"
 #define GO_BACK "if (lbCurSel 292901 == 0) exitWith {'Scripts' call tk_fillBigList;};"
 
 private "_type";

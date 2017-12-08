@@ -1,5 +1,4 @@
 #include "colors.hpp"
-#include "text_scripts.sqf"
 private ["_bigList","_codeBox","_codeText","_display","_smallList","_statsText","_topBar","_viewing"];
 disableSerialization;
 
