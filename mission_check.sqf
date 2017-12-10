@@ -11,7 +11,8 @@ _list = [];
 	_file = toArray (toLower(preprocessFile _x));
 	_sum = 0;
 	_count = {_sum = _sum + _x; true} count _file;
-	_sum = _sum min 999999;		
+	if (_count > 999999) then {_count = _count % 999999}; //Prevent scientific notation when converting to string below
+	if (_sum > 999999) then {_sum = _sum % 999999};
 	_list set [count _list,[_count,_sum]];
 } forEach _files;
 
@@ -25,7 +26,8 @@ _temp setVehicleInit (str formatText["
 		_file = toArray (toLower(preprocessFile _x));
 		_sum = 0;
 		_count = {_sum = _sum + _x; true} count _file;
-		_sum = _sum min 999999;		
+		if (_count > 999999) then {_count = _count % 999999};
+		if (_sum > 999999) then {_sum = _sum % 999999};
 		_list set [count _list,[_count,_sum]];
 	} forEach %1;
 	
