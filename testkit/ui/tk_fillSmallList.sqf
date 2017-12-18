@@ -22,7 +22,6 @@ _smallList ctrlSetEventHandler ["LBDblClick","
 	};
 	(vehicle _player) switchCamera 'EXTERNAL';
 	systemChat format['Viewing %1',_text];
-	'rswitchCameracode'
 "];
 
 {

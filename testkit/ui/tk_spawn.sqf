@@ -28,7 +28,6 @@ _type = _this select 1;
 				systemChat 'Warning vehicle position will reset after next server restart. After that it will save correctly.';
 				systemChat 'All players must relog for vehicle event handlers to work (damage, killed, repair, getOut, etc.)';
 			};
-			'_object = (_x select 1) createVehicleLocal [0,0,0]; _selectedUserIndex = lbCurSel _lbUsersControl;'
 		"
 	};
 	case "> Add weapon": {
@@ -70,7 +69,6 @@ _type = _this select 1;
 				player selectWeapon _class;
 			};
 			systemChat format['Added: %1',_class];
-			'_selectedUserIndex = lbCurSel _lbUsersControl;'
 		"
 	};
 	case "> Add magazine": {
@@ -79,7 +77,6 @@ _type = _this select 1;
 			_class = lbData [292901,lbCurSel 292901];
 			player addMagazine _class;
 			systemChat format['Added: %1',_class];
-			'_selectedUserIndex = lbCurSel _lbUsersControl;'
 		"
 	};
 	case "> Add backpack": {
@@ -88,7 +85,6 @@ _type = _this select 1;
 			_class = lbData [292901,lbCurSel 292901];
 			player addBackpack _class;
 			systemChat format['Added: %1',_class];
-			'_selectedUserIndex = lbCurSel _lbUsersControl;'
 		"
 	};
 	case "> Change clothes": {
@@ -97,7 +93,6 @@ _type = _this select 1;
 			_class = lbData [292901,lbCurSel 292901];
 			[dayz_playerUID,dayz_characterID,_class] spawn player_humanityMorph;
 			systemChat format['Now wearing: %1',_class];
-			'_selectedUserIndex = lbCurSel _lbUsersControl;'
 		"
 	};
 }];

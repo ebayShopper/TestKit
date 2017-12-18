@@ -18,7 +18,7 @@ This is a UI for testing A2 Epoch and DayZ mod dev builds. It aims to be simple,
 	publicVariableServer "PVDZ_getTickTime";
 	```
 
-2. At the bottom of <code>dayz_server\init\server_functions.sqf</code> add:
+2. At the very top of <code>dayz_server\init\server_functions.sqf</code> add:
 
 	```sqf
 	#include "testkit.sqf"
