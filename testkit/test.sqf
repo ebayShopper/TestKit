@@ -2,8 +2,9 @@
 private ["_fnc_dump","_t1"];
 
 _fnc_dump = {
-	diag_log format["Test script finished. Code took %1 seconds to run",_this];
-	format["Test script finished. Code took %1 seconds to run",_this] call dayz_rollingMessages;
+	#define TK_LOG (localize "str_disp_intel_time" + format[" %1 - ",diag_tickTime] + format["Code took %1 seconds to run",_this])
+	diag_log TK_LOG;
+	systemChat TK_LOG;
 };
 
 _t1 = diag_tickTime;

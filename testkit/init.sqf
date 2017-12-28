@@ -111,7 +111,6 @@ if (tk_editorMode) then {
 	dayz_nutrition = 0;
 	dayz_temperatur = 0;
 	r_player_blood = 0;
-	dayz_rollingMessages = {};
 	epoch_generateKey = {[0,0]};
 	fnc_usec_damageHandler = {0};
 	player_humanityMorph = {};
@@ -132,11 +131,12 @@ if (tk_editorMode) then {
 		call DZ_KeyDown_EH;
 	};
 	waitUntil {uiSleep 1;(!isNil "Dayz_loginCompleted" && !isNil "keyboard_keys")};
+	systemChat (localize "str_loading");
 	uiSleep 2;
 	
 	DZ_KeyDown_EH_Original = DZ_KeyDown_EH;
 	DZ_KeyDown_EH = compile preprocessFileLineNumbers "testkit\keys.sqf";
 	[controlNull,1,false,false,false] call DZ_KeyDown_EH;
 
-	[(if (tk_minimalMode) then {"F8 to run test script"} else {"Tilde '~' to open testkit"}), call dayz_rollingMessages];
+	systemChat (if (tk_minimalMode) then {"F8 to run test script"} else {"Tilde '~' to open testkit"});
 };
