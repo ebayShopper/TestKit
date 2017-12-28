@@ -16,7 +16,7 @@ switch _option do {
 		if (player distance _player > 5 && _player getVariable ["NORRN_unconscious",false]) then {
 			systemChat "You must be within 5m of player to give epinephrine";
 		};
-		PVDZ_getTickTime = [getPlayerUID player,4,_player,toArray (PVDZ_pass select 0)];
+		PVDZ_getTickTime = [getPlayerUID player,4,_player,dayz_authKey];
 		publicVariableServer "PVDZ_getTickTime";
 	};
 	case "Refuel and repair": {

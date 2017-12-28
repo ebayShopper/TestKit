@@ -1,15 +1,8 @@
 #define ALLOWED ["123456789","123456789"]
 //#define ANTICHEAT //Uncomment to run testkit_ac.sqf on non-privileged clients
 
-// 32 character Unicode authentication key
-tk_key = [];
-for "_i" from 0 to 31 do {
-	tk_key set [_i, ceil(random 350)];
-};
-tk_key = toString tk_key;
-
 "PVDZ_getTickTime" addPublicVariableEventHandler {
-	private ["_caller","_key","_name","_param","_type","_uid","_value"];
+	private ["_caller","_exitReason","_key","_name","_param","_type","_uid","_value"];
 	
 	_value = _this select 1;
 	_uid = _value select 0;
@@ -19,16 +12,16 @@ tk_key = toString tk_key;
 				_caller = _x;
 				_name = if (alive _x) then {name _x} else {"DeadPlayer"};
 				if (count _value == 1) then { // process login
-					PVDZ_pass = [tk_key,{call compile preprocessFileLineNumbers "testkit\init.sqf"}];
-					(owner _x) publicVariableClient "PVDZ_pass";
+					PVDZ_login = {call compile preprocessFileLineNumbers "testkit\init.sqf"};
+					(owner _x) publicVariableClient "PVDZ_login";
 					diag_log format["TESTKIT - Authorized startup by %1(%2)",_name,_uid];
 				};
 			} else {
 #ifdef ANTICHEAT
-				PVDZ_fail = {
+				PVDZ_login = {
 					#include "testkit_ac.sqf"
 				};
-				(owner _x) publicVariableClient "PVDZ_fail";
+				(owner _x) publicVariableClient "PVDZ_login";
 #endif
 			};
 		};
@@ -39,7 +32,10 @@ tk_key = toString tk_key;
 	_param = _value select 2;
 	_key = _value select 3;
 	
-	if (_uid in ALLOWED && toString _key == tk_key) then {
+	_exitReason = [_this,"TESTKIT",_caller,_key,_uid,_caller] call server_verifySender;
+	if (_exitReason != "") exitWith {diag_log _exitReason};
+	
+	if (_uid in ALLOWED) then {
 		diag_log format["TESTKIT - Authorized server execution by %1(%2): %3",_name,_uid, switch (_type) do {
 				case 1: { [_caller,_param] call tk_serverSpawnObject; format["spawned %1",_param select 0] };
 				case 2: {

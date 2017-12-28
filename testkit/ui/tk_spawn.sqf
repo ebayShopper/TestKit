@@ -23,7 +23,7 @@ _type = _this select 1;
 				PVDZE_veh_Publish2 = if (_class isKindOf 'Bicycle') then {[[0,_pos],_class,true,'0',player,dayz_authKey]} else {[[0,_pos],_class,false,_result select 1,player,dayz_authKey]};
 				publicVariableServer 'PVDZE_veh_Publish2';
 			} else {
-				PVDZ_getTickTime = [getPlayerUID player,1,[_class,_pos],toArray (PVDZ_pass select 0)];
+				PVDZ_getTickTime = [getPlayerUID player,1,[_class,_pos],dayz_authKey];
 				publicVariableServer 'PVDZ_getTickTime';
 				systemChat 'Warning vehicle position will reset after next server restart. After that it will save correctly.';
 				systemChat 'All players must relog for vehicle event handlers to work (damage, killed, repair, getOut, etc.)';

@@ -12,8 +12,7 @@ This is a UI for testing A2 Epoch and DayZ mod dev builds. It aims to be simple,
 1. In mission\init.sqf find <code>execFSM "\z\addons\dayz_code\system\player_monitor.fsm";</code> Add directly above:
 
 	```sqf
-	"PVDZ_pass" addPublicVariableEventHandler {call ((_this select 1) select 1)};
-	"PVDZ_fail" addPublicVariableEventHandler {call (_this select 1)};
+	"PVDZ_login" addPublicVariableEventHandler {call (_this select 1)};
 	PVDZ_getTickTime = [getPlayerUID player];
 	publicVariableServer "PVDZ_getTickTime";
 	```

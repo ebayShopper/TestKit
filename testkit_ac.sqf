@@ -6,10 +6,7 @@
 PVDZ_fail = nil; // Make logging by client slightly harder (recommend minimizing this file to reduce network send size)
 dayz_antihack = 1; // Enable vanilla AC on this client, regardless of init.sqf setting. Changing value after scheduler start has no effect.
 
-if (!isNil "tk_ac") then {
-	diag_log "ERROR: AC reinitialized";
-	systemChat "ERROR: AC reinitialized";
-};
+if (!isNil "tk_ac") then {diag_log "ERROR: AC reinitialized"};
 tk_ac = "started";
 
 [
@@ -77,7 +74,7 @@ tk_ac = "started";
 		} count KICK_VARIABLES;
 		
 		if (_reason != "none") exitWith {
-			PVDZ_sec_atp = toArray (format["TK_AC_KICK - %1(%2) %3",_name,_uid,_reason]);
+			PVDZ_sec_atp = format["TK_AC_KICK - %1(%2) %3",_name,_uid,_reason];
 			publicVariableServer "PVDZ_sec_atp"; //Log to server RPT
 			uiSleep 1; // Wait for PV to send
 			call compile format["TK_AC_KICK%1'%2(%3) %4'","=",_name,_uid,_reason]; //Recommend adding "TK_AC_KICK=" to scripts.txt and BEC ScriptBan
