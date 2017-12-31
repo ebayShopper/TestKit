@@ -11,8 +11,10 @@
 			if (_uid in ALLOWED) then {
 				_caller = _x;
 				_name = if (alive _x) then {name _x} else {"DeadPlayer"};
-				if (count _value == 1) then { // process login
+				if (count _value == 1) then {
 					PVDZ_login = {call compile preprocessFileLineNumbers "testkit\init.sqf"};
+					//Only server can send this variable. Clients are kicked by BE if they try to send it. Do not allow in publicvariable.txt
+					//Only send to client that owns the authorized UID regardless of who sent the request
 					(owner _x) publicVariableClient "PVDZ_login";
 					diag_log format["TESTKIT - Authorized startup by %1(%2)",_name,_uid];
 				};

@@ -1,4 +1,4 @@
-// Run with test script and teleport keybinds only, for testing BE scripts.txt filters
+//Run with test script and teleport keybinds only, for testing BE scripts.txt filters
 tk_minimalMode = false;
 
 //Can be changed on the fly by relogging, regardless of init.sqf setting
@@ -100,6 +100,7 @@ tk_isEpoch = isClass (configFile >> "CfgWeapons" >> "Chainsaw");
 
 if (tk_editorMode) then {
 	BIS_fnc_help = compile preprocessFileLineNumbers "ca\modules\functions\misc\fn_help.sqf";
+	tk_editorKeys = compile preprocessFileLineNumbers "testkit\keys_e.sqf";
 	dayz_classicBloodBagSystem = true;
 	dayz_currentGlobalAnimals = 0;
 	dayz_currentGlobalZombies = 0;
@@ -113,7 +114,6 @@ if (tk_editorMode) then {
 	r_player_blood = 0;
 	epoch_generateKey = {[0,0]};
 	fnc_usec_damageHandler = {0};
-	player_humanityMorph = {};
 	player_zombieCheck = {};
 	dayz_authKey = "";
 };

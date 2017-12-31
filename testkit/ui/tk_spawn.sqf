@@ -91,8 +91,10 @@ _type = _this select 1;
 		GO_BACK + "
 			private '_class';
 			_class = lbData [292901,lbCurSel 292901];
-			[dayz_playerUID,dayz_characterID,_class] spawn player_humanityMorph;
-			systemChat format['Now wearing: %1',_class];
+			if (!tk_editorMode) then {
+				[dayz_playerUID,dayz_characterID,_class] spawn player_humanityMorph;
+				systemChat format['Now wearing: %1',_class];
+			};
 		"
 	};
 }];
