@@ -94,7 +94,7 @@ tk_serverSpawnObject = {
 		_ignoreMagazines = [
 			"bloodBagBase","SkinBase","wholeBloodBagBase","ItemAntibiotic_base","ItemAntibioticEmpty",
 			"ItemBriefcase_Base","ItemBriefcaseEmpty","ItemSilvercase_Base","ItemSodaEmpty","TrashTinCan",
-			"ItemFuelcanEmpty","ItemJerrycanEmpty","ItemFuelBarrelEmpty","45Rnd_545x39_RPK",
+			"ItemFuelcanEmpty","ItemJerrycanEmpty","ItemFuelBarrelEmpty",
 			"ItemJerryMixed","ItemJerryMixed1","ItemJerryMixed2","ItemJerryMixed3","ItemJerryMixed4"
 		];
 		_ignoreWeapons = [
