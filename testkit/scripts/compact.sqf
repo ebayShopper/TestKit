@@ -1,3 +1,14 @@
+/*
+	1. Put the file containing editor output in the main Arma game directory
+	2. Update _fileName below
+	3. In the file to compact replace all occurrences of:
+		};
+	with:
+		bigObjectArray set [count bigObjectArray,_this];};
+	There should only be one after each object.
+	4. Run compact.sqf
+*/
+
 _fileName = "mission.sqf"; // Name of file to convert
 
 private ["_compact","_fileName","_heightLand","_heightSea","_pos","_type"];

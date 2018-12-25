@@ -4,6 +4,7 @@
 
 //List of files in your mission to check. For example, you may want to add 'custom\variables.sqf' etc.
 //Remove any you aren't using
+//Do not add binary files .ogg, .png, .paa, .jpg, etc.
 _files = ['description.ext','init.sqf','mission.sqm','rules.sqf'];
 
 _list = [];
